@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube Public Downloader</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="card" aria-labelledby="page-title">
+      <div class="heading-group">
+        <p class="eyebrow">Public videos only</p>
+        <h1 id="page-title">YouTube Downloader</h1>
+        <p class="subcopy">Paste an allowed public YouTube link, choose a format, and generate a temporary download.</p>
+      </div>
+
+      <form id="download-form" class="download-form" novalidate>
+        <label for="youtube-url">YouTube URL</label>
+        <input id="youtube-url" name="url" type="url" inputmode="url" placeholder="https://www.youtube.com/watch?v=..." autocomplete="off" required>
+
+        <label for="format-type">Format</label>
+        <select id="format-type" name="type" required>
+          <option value="video-audio">Video + Voice MP4</option>
+          <option value="video-only">Video Only MP4</option>
+          <option value="audio">Voice Only MP3</option>
+        </select>
+
+        <button id="download-button" type="submit">Download</button>
+      </form>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <a id="download-link" class="download-link" href="#" download hidden>Download File</a>
+
+      <p class="notice">Use only for publicly viewable videos where the creator or rights holder allows downloading.</p>
+    </section>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
