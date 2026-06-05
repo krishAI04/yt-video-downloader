@@ -184,14 +184,15 @@ app.post('/api/download', downloadLimiter, async (req, res) => {
   const prefix = sanitizeFilePart(`${type}-${id}`);
   const outputTemplate = path.join(DOWNLOAD_DIR, `${prefix}.%(ext)s`);
 
-  const commonArgs = [
-    '--no-playlist',
-    '--no-cache-dir',
-    '--restrict-filenames',
-    '--windows-filenames',
-    '--no-part',
-    '-o', outputTemplate
-  ];
+ const commonArgs = [
+  '--no-playlist',
+  '--no-cache-dir',
+  '--restrict-filenames',
+  '--windows-filenames',
+  '--no-part',
+  '--js-runtimes', 'node',
+  '-o', outputTemplate
+];
 
   const args = [
     ...downloadType.args(commonArgs),
